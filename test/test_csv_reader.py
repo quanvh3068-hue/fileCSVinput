@@ -6,7 +6,11 @@ def main():
     for file in files:
         print(f"\n=== Đang đọc {file} ===")
 
-        processes = read_csv(file)
+        try:
+            processes = read_csv(file)
+        except Exception as e:
+            print(f"Lỗi: {e}")
+            continue
 
         if not processes:
             print("Không có dữ liệu")
